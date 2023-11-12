@@ -1,0 +1,6 @@
+name: ZthEndAlone
+version: '${project.version}'
+main: ink.magma.zthendalone.ZthEndAlone
+api-version: '1.20'
+authors: [MagmaBlock]
+description: 实现末地单一服务器
