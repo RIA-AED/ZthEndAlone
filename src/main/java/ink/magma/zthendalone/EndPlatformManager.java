@@ -38,4 +38,19 @@ public class EndPlatformManager {
     static Location getSpawnLocation(@NotNull World endWorld) {
         return new Location(endWorld, 100, 49, 0);
     }
+
+    /**
+     * 获取非玩家实体返回末地的位置.
+     * 这是末地中央返回传送门基岩柱子的顶部.
+     *
+     * @param endWorld 末地世界
+     * @return a safe location on top of the bedrock pillar.
+     */
+    static Location getNonPlayerReturnLocation(@NotNull World endWorld) {
+        // 坐标 (0,0) 是末地主岛的中心
+        // getHighestBlockAt 会返回该坐标上最高的非空气方块
+        // +1 确保实体生成在方块之上而不是之内
+        int y = endWorld.getHighestBlockYAt(0, 0) + 1;
+        return new Location(endWorld, 0.5, y, 0.5); // 使用 0.5, 0.5 确保实体在方块中央
+    }
 }
